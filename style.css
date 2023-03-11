@@ -1,0 +1,23 @@
+:root {
+    --numero-colone: 1;
+    --numero-row: 1;
+  }
+.clavier{
+    display:inline grid;
+    grid-template-rows: repeat(var(--numero-row),1fr);
+    grid-template-columns: repeat(var(--numero-colone),1fr);
+    width:100px;
+}
+.output{
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 400px;
+    height: 100px;
+}
+.numero,.operation,.point,.egal,.sept,.six,.plus{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width:100px;
+}
