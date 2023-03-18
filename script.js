@@ -15,15 +15,15 @@ class Calculatrice{
     choix_operation(operation){
         if(this.maintenant==""){  
             return;
-            //pour empecher de mettre des signe d'opérations sans chiffre avant
+            //pour empecher de mettre des signe d'opérations sans nombre avant
         }
         if(this.precedent!=""){   
             this.calcule();
             //pour enchainer les caluculations.
         }
         this.operation=operation;
-        this.precedent=this.maintenant;  //liberer la place pour le deuxieme chiffre
-        this.maintenant="";  //liberer la place pour le deuxieme chiffre
+        this.precedent=this.maintenant;  //liberer la place pour le deuxieme nombre
+        this.maintenant="";  //liberer la place pour le deuxieme nombre
     }
 
     delete(){
@@ -41,18 +41,18 @@ class Calculatrice{
 
     calcule(){
         let caculer;
-        const chiffre_precedent=parseFloat(this.precedent);//pour mettre le string en chiffre
+        const nombre_precedent=parseFloat(this.precedent);//pour mettre le string en nombre
 
-        const chiffre_maintenant=parseFloat(this.maintenant);//pour mettre le string en chiffre
+        const nombre_maintenant=parseFloat(this.maintenant);//pour mettre le string en nombre
 
         switch(this.operation){
-            case "+":{caculer=chiffre_precedent+chiffre_maintenant;break;}
+            case "+":{caculer=nombre_precedent+nombre_maintenant;break;}
 
-            case "-":{caculer=chiffre_precedent-chiffre_maintenant;break}
+            case "-":{caculer=nombre_precedent-nombre_maintenant;break}
 
-            case "x":{caculer=chiffre_precedent*chiffre_maintenant;break}
+            case "x":{caculer=nombre_precedent*nombre_maintenant;break}
 
-            case "÷":{caculer=chiffre_precedent/chiffre_maintenant;break}
+            case "÷":{caculer=nombre_precedent/nombre_maintenant;break}
             default:{return;}
         }
         this.maintenant=caculer;
@@ -60,19 +60,19 @@ class Calculatrice{
         this.precedent="";
     }
 
-    modifier_chiffre(nombre){
-        const modif_chiffre=parseFloat(nombre);
-        if(isNaN(modif_chiffre)){
+    modifier_nombre(nombre){
+        const modif_nombre=parseFloat(nombre);
+        if(isNaN(modif_nombre)){
             return "";
         }
-        return modif_chiffre.toLocaleString("fr");
+        return modif_nombre.toLocaleString("fr");
     }
 
     update_display(){
 
-        this.maintenant_text.innerText=this.modifier_chiffre(this.maintenant);
+        this.maintenant_text.innerText=this.modifier_nombre(this.maintenant);
         if(this.operation!=null){
-            this.precedent_text.innerText=this.modifier_chiffre(this.precedent)+this.operation;
+            this.precedent_text.innerText=this.modifier_nombre(this.precedent)+this.operation;
         }else{
             this.precedent_text.innerText="";
         }

@@ -15,22 +15,17 @@
     grid-template-columns: repeat(var(--numero-colone),1fr);
     width:100px;
 }
-.test{
+.bouton_special{
     display: flex;
 }
 .output{
+    display:flex;
+    justify-content:right;
+    font-size: 35px;
     background-color: black;
     color: white;
     width: 400px;
-    height: 70px;
-}
-.maintenant{
-    text-align: end;
-    font-size: 35px;
-}
-.previous{
-    font-size: 20px;
-    text-align: right;
+    height: 40px;
 }
 .numero,.operation,.point,.egal{
     display: flex;
